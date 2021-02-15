@@ -5,7 +5,7 @@ import csv
 import functools
 import operator
 
-VOCAB_FILENAME: str = "vocabulary.csv"
+VOCAB_FILENAME: str = "data/vocabulary.csv"
 
 
 def clean(sentences: list) -> list:
@@ -53,7 +53,7 @@ def main(vocab_filename: str) -> None:
     parser.add_argument("--vocab", type=str,
                         help="specify a vocabulary file to use")
     args = parser.parse_args()
-    text_filename = f"corpus/{args.corpus}.txt"
+    text_filename = f"data/{args.corpus}.txt"
     if args.vocab:
         vocab_filename = args.vocab
 

@@ -21,9 +21,10 @@ The vocabulary is stored in a CSV file.
 
 Run the tests:
 
+    flake8
     pytest
 
-Run the program:
+Run the program on a sample corpus:
 
     python sentencer/main.py my-day
 
