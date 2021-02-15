@@ -31,13 +31,6 @@ def vocab_filter(sentences: list, vocab: set) -> list:
     return filtered_list
 
 
-def extract_lemmas(sentence: list) -> list:
-    words = word_tokenize(sentence)
-    tagged_sentence = pos_tag(words)
-    for word in words:
-        pass
-
-
 def extract_sentences(text: str) -> list:
     """
     Extract the sentences from a text string.

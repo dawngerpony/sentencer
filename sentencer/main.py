@@ -1,4 +1,4 @@
-from sentencer.vocab import vocab_filter, extract_sentences
+from vocab import vocab_filter, extract_sentences
 
 import argparse
 import csv
@@ -49,9 +49,13 @@ def load_vocab(filename: str) -> set:
 def main(vocab_filename: str) -> None:
     # Get the name of the desired corpus from the command line
     parser = argparse.ArgumentParser()
-    parser.add_argument("corpus")
+    parser.add_argument("corpus", type=str, help="The text to parse")
+    parser.add_argument("--vocab", type=str,
+                        help="specify a vocabulary file to use")
     args = parser.parse_args()
     text_filename = f"corpus/{args.corpus}.txt"
+    if args.vocab:
+        vocab_filename = args.vocab
 
     # Load the desired corpus and vocabulary from disk
     corpus = load_corpus(text_filename)
@@ -63,7 +67,15 @@ def main(vocab_filename: str) -> None:
     # pass through the vocabulary filter
     output = vocab_filter(clean(sentences), vocab)
     for sentence in output:
-        print(sentence)
+        print("\t" + sentence)
+
+    percent_extracted = int((len(output)/len(sentences)) * 100)
+    print(f"\n{len(output)}/{len(sentences)} sentences were extracted: {percent_extracted}%")
+    if percent_extracted < 100:
+        print("\nSentences not extracted:")
+        difference = set(sentences) - set(output)
+        for sentence in difference:
+            print("\t" + sentence)
 
 
 if __name__ == "__main__":
