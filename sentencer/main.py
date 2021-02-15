@@ -1,4 +1,4 @@
-from vocab import vocab_filter, extract_sentences
+from sentencer.vocab import vocab_filter, extract_sentences
 
 import argparse
 import csv

@@ -1,4 +1,4 @@
-from .vocab import vocab_filter, extract_sentences
+from sentencer.vocab import vocab_filter, extract_sentences
 
 SENTENCES = [
     "This is my rifle.",
@@ -7,14 +7,14 @@ SENTENCES = [
 
 
 def test_vocab_filter_happy_path_should_return_one_sentence():
-    vocab = {"this", "be", "my", "rifle"}
-    actual = vocab_filter(SENTENCES, vocab)
+    test_vocab = {"this", "be", "my", "rifle"}
+    actual = vocab_filter(SENTENCES, test_vocab)
     expected = [SENTENCES[0]]
     assert actual == expected
 
 
 def test_vocab_filter_empty_params_should_return_empty_list():
-    assert vocab_filter([], {}) == []
+    assert vocab_filter([], set()) == []
 
 
 def test_vocab_filter_no_match_should_return_empty_list():
