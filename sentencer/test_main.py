@@ -1,4 +1,4 @@
-from bookworm import main
+from sentencer import main
 
 SENTENCES = [
     "This is my rifle.",

@@ -1,4 +1,4 @@
-# Bookworm
+# Sentencer
 
 A program to extract translatable sentences from a corpus,
 based on a known vocabulary.
@@ -24,5 +24,5 @@ Run the tests:
 
 Run the program:
 
-    python bookworm/main.py my-day
+    python sentencer/main.py my-day
 

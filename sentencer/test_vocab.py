@@ -1,4 +1,4 @@
-from bookworm.vocab import vocab_filter, extract_sentences
+from .vocab import vocab_filter, extract_sentences
 
 SENTENCES = [
     "This is my rifle.",
